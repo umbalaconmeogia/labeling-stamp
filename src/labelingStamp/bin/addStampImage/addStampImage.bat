@@ -1,0 +1,1 @@
+../../yii stamp/add-stamp-image --file=image1.png --price=10
