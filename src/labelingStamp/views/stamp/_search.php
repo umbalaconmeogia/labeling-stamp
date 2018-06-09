@@ -17,7 +17,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'file_path') ?>
+    <?= $form->field($model, 'file') ?>
 
     <?= $form->field($model, 'price') ?>
 

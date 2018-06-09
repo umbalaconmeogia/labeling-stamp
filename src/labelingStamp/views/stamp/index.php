@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use batsg\helpers\HHtml;
+use app\components\ConstantValue;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\StampSearch */
@@ -25,16 +27,27 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'file_path:ntext',
+            [
+                'header' => 'Image',
+                'format' => 'raw',
+                'value' => function($data) {
+                    return HHtml::imgThumbnail($data->imageUrl);
+                },
+                'filter' => FALSE,
+            ],
+            'file:ntext',
             'price',
-            'price_setting',
-            'created_at',
-            //'created_by',
-            //'updated_at',
-            //'updated_by',
+            [
+                'attribute' => 'price_setting',
+                'value' => 'priceSettingStr',
+                'filter' => ConstantValue::getListOptions('STAMP_PRICE_SETTING'),
+            ],
+            
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{update}',
+            ],
         ],
     ]); ?>
 </div>

@@ -19,7 +19,7 @@ class StampSearch extends Stamp
     {
         return [
             [['id', 'price', 'price_setting', 'created_by', 'updated_by'], 'integer'],
-            [['file_path', 'created_at', 'updated_at'], 'safe'],
+            [['file', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -68,7 +68,7 @@ class StampSearch extends Stamp
             'updated_by' => $this->updated_by,
         ]);
 
-        $query->andFilterWhere(['like', 'file_path', $this->file_path]);
+        $query->andFilterWhere(['like', 'file', $this->file]);
 
         return $dataProvider;
     }

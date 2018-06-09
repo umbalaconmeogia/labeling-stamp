@@ -1,0 +1,3 @@
+category,code,name,value,remarks
+STAMP_PRICE_SETTING,NOT_SET,未確定,0,
+STAMP_PRICE_SETTING,SET,確定,1,

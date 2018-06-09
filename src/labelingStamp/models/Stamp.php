@@ -2,10 +2,8 @@
 
 namespace app\models;
 
-use Yii;
-use batsg\models\BaseModel;
+use app\components\ConstantValue;
 use batsg\helpers\HFile;
-use batsg\helpers\HDateTime;
 use batsg\models\BaseBatsgModel;
 use yii\helpers\FileHelper;
 
@@ -20,13 +18,13 @@ use yii\helpers\FileHelper;
  * @property int $created_by
  * @property string $updated_at
  * @property int $updated_by
+ * 
+ * @property string $imageUrl
+ * @property string $priceSettingStr
  */
 class Stamp extends BaseBatsgModel
 {
     const IMAGE_SUB_DIR = 'data/stamp';
-    
-    const PRICE_NOT_SET = 0;
-    const PRICE_SET = 1;
     
     /**
      * @inheritdoc
@@ -125,5 +123,16 @@ class Stamp extends BaseBatsgModel
     private static function imageFileUrl($fileName)
     {
         return self::IMAGE_SUB_DIR . '/' . $fileName;
+//         return Url::to('@web/data/images/' . $this->image_path, $absolutePath);
+    }
+    
+    public function getImageUrl()
+    {
+        return self::imageFileUrl($this->file);
+    }
+    
+    public function getPriceSettingStr()
+    {
+        return ConstantValue::getName('STAMP_PRICE_SETTING', $this->price_setting);
     }
 }
