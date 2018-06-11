@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Stamp */
 
-$this->title = 'Update Stamp: {nameAttribute}';
+$this->title = "Update Stamp: {$model->file}";
 $this->params['breadcrumbs'][] = ['label' => 'Stamps', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
