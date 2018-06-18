@@ -25,6 +25,14 @@ $config = [
             ],
         ],
         'db' => $db,
+		'i18n' => [
+			'translations' => [
+				'yii2mod.user' => [
+					'class' => 'yii\i18n\PhpMessageSource',
+					'basePath' => '@yii2mod/user/messages',
+				],
+			],
+		],
     ],
     'params' => $params,
     /*
@@ -34,6 +42,21 @@ $config = [
         ],
     ],
     */
+    'controllerMap' => [
+        'migrate' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationPath' => [
+                '@app/migrations',
+//                '@vendor/yii2mod/yii2-user/migrations',
+//				'@vendor/giannisdag/yii2-check-login-attempts/src/migrations',
+            ],
+        ],
+	],
+	'modules' => [
+		'user' => [
+			'class' => 'yii2mod\user\ConsoleModule',
+		],
+	],
 ];
 
 if (YII_ENV_DEV) {

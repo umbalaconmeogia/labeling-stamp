@@ -44,6 +44,12 @@ class SiteController extends Controller
     public function actions()
     {
         return [
+            'login' => [
+                'class' => 'yii2mod\user\actions\LoginAction'
+            ],
+            'logout' => [
+                'class' => 'yii2mod\user\actions\LogoutAction'
+            ],
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
